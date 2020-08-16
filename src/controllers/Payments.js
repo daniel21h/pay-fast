@@ -1,12 +1,16 @@
 module.exports = (server) => {
   server.get('/payments', (request, response) => {
-    response.json({ message: 'Alura Node.js' })
+    response.json({ message: 'Alura with Node.js' })
   });
 
   server.post('/payments/payment', (request, response) => {
     const payment = request.body;
-    console.log(payment);
+    console.log('Processing the request for a new payment.');
 
-    response.send('Ok');
+    // Set payment datas
+    payment.status = 'created';
+    payment.date = new Date;
+
+    response.send(payment);
   });
 }
