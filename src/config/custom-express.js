@@ -12,6 +12,7 @@ module.exports = () => {
   // Files manager
   consign()
     .include('src/controllers')
+    .then('src/database')
     .into(server);
 
   return server;
